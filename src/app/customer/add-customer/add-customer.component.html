@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-lg-6 m-auto">
+		<div class="card">
+			<div class="card-body">
+				<form #myForm="ngForm" (submit)="addCustomer(myForm.value)">
+					<input type="hidden" name="id" [(ngModel)]="id">
+					<div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" class="form-control" name="firstName" ngModel>
+					</div>
+					<div class="form-group">
+						<label for="lastName">Last Name</label>
+						<input type="text" class="form-control" name="lastName" ngModel>
+					</div>
+					<div class="form-group">
+						<label for="address">Address</label>
+						<input type="text" class="form-control" name="address" ngModel>
+					</div>
+					<div class="form-group">
+						<label for="city">City</label>
+						<input type="text" class="form-control" name="city" ngModel>
+					</div>
+					<div class="form-group">
+						<label for="state">State</label>
+						<input type="text" class="form-control" name="state" ngModel>
+					</div>
+					<input type="submit" value="Create" class="btn btn-success form-control">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

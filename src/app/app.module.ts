@@ -5,16 +5,24 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomerComponent } from './customer/customer.component';
+import { MenuComponent } from './menu/menu.component';
+import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
+import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomerComponent,
+    MenuComponent,
+    AddCustomerComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
