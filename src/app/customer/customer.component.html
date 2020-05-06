@@ -23,7 +23,7 @@
 					<td>{{ customer.city }}</td>
 					<td>{{ customer.state }}</td>
 					<td><a class="btn btn-sm btn-warning" [routerLink]="['/customer/edit', customer.id]">Edit</a></td>
-					<td><a class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.id)">Delete</a></td>
+					<td><button class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.id)">Delete</button></td>
 				</tr>
 			</tbody>
 		</table>

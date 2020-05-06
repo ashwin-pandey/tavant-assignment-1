@@ -28,4 +28,9 @@ export class CustomerService {
     return of("Added new customer!");
   }
 
+  deleteCustomer(id) {
+    const index = this.customerArray.findIndex(item => item.id == id);
+    return of(this.customerArray.splice(index, 1));
+  }
+
 }
