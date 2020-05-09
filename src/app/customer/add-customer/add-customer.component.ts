@@ -27,6 +27,7 @@ export class AddCustomerComponent implements OnInit {
   }
 
   addCustomer(formData) {
+    // console.log(formData);
     this.customerService.addCustomer(formData).subscribe(
       response => {
         this.router.navigate(['/']),

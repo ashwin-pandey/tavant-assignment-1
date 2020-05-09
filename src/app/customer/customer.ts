@@ -1,8 +1,12 @@
-export interface Customer {
-	id: number;
-	firstName: string; 
-	lastName: string;
-	address: string; 
-	city: string;
-	state: string;
+export class Customer {
+	
+	constructor(
+		public id: number,
+		public firstName: string, 
+		public lastName: string,
+		public address: string, 
+		public city: string,
+		public state: string
+	) {}
+
 }

@@ -32,8 +32,8 @@ export class EditCustomerComponent implements OnInit {
   updateCustomer(formData) {
     this.customerService.updateCustomer(formData, this.id).subscribe(
       response => {
-        this.router.navigate(['/']),
-        console.log(formData)
+        this.router.navigate(['/'])
+        // console.log(formData)
       },
       error => console.log(error.message)
     );
