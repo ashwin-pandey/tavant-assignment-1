@@ -11,6 +11,9 @@ import { Customer } from '../customer';
 export class AddCustomerComponent implements OnInit {
 
   customer: Customer[];
+
+  showLoadingIndicator: boolean;
+
   id: number;
 
   constructor(

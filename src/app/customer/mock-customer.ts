@@ -46,5 +46,5 @@ export const CustomerArray: Customer[] = [
 		address: '5687534 Jefferson Way', 
 		city: 'Buffalo', 
 		state: 'New York' 
-	},
+	}
 ];

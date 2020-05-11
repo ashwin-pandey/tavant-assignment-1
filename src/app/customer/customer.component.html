@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="col-lg-12 create-new-button">
-		<button class="btn btn-success float-right" [routerLink]="['/customer/new']">Add New Customer</button>
+	<div class="col-lg-12 mb-3 create-new-button">
+		<button mat-raised-button color="primary" class="float-right" [routerLink]="['/customer/new']">Add New Customer</button>
 	</div>
-	<div class="col-lg-12 table-responsive">
-		<table class="table table-striped border mt-3">
+	<div class="col-lg-12">
+		<!-- <table class="table table-striped border mt-3">
 			<thead>
 				<tr>
 					<th scope="col">First Name</th>
@@ -22,10 +22,70 @@
 					<td>{{ customer.address }}</td>
 					<td>{{ customer.city }}</td>
 					<td>{{ customer.state }}</td>
-					<td><a class="btn btn-sm btn-warning" [routerLink]="['/customer/edit', customer.id]">Edit</a></td>
-					<td><button class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.id)">Delete</button></td>
+					<td><a class="" mat-raised-button color="accent" [routerLink]="['/customer/edit', customer.id]">Edit</a></td>
+					<td><button class="" mat-raised-button color="warn" (click)="deleteCustomer(customer.id)">Delete</button></td>
 				</tr>
 			</tbody>
-		</table>
+		</table> -->
+
+		<div class="mat-elevation-z8">
+
+			<mat-table [dataSource]="dataSource" >
+			
+				<!-- First Name Column -->
+				<ng-container matColumnDef="firstName">
+					<mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+					<mat-cell *matCellDef="let element"> 
+						<a [routerLink]="['/customer/edit', element.id]">{{ element.firstName }}</a> 
+					</mat-cell>
+				</ng-container>
+				
+				<!-- Last Name Column -->
+				<ng-container matColumnDef="lastName">
+					<mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+					<mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+				</ng-container>
+				
+				<!-- Address Column -->
+				<ng-container matColumnDef="address">
+					<mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+					<mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+				</ng-container>
+				
+				<!-- City Column -->
+				<ng-container matColumnDef="city">
+					<mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+					<mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+				</ng-container>
+				
+				<!-- State Column -->
+				<ng-container matColumnDef="state">
+					<mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+					<mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
+				</ng-container>
+			
+				<!-- Edit Column -->
+				<ng-container matColumnDef="edit">
+					<mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+					<mat-cell *matCellDef="let element"> 
+						<a class="" mat-raised-button color="accent" [routerLink]="['/customer/edit', element.id]">Edit</a> 
+					</mat-cell>
+				</ng-container>
+				
+				<!-- Delete Column -->
+				<ng-container matColumnDef="delete">
+					<mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+					<mat-cell *matCellDef="let element"> 
+						<button class="" mat-raised-button color="warn" (click)="deleteCustomer(element.id)">Delete</button> 
+					</mat-cell>
+				</ng-container>
+
+				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+			
+			</mat-table>
+			<!-- <mat-paginator [pageSize]="5" [length]="length" [pageSizeOptions]="[5, 10, 20, 50 ,100]" showFirstLastButtons></mat-paginator> -->
+			
+		</div>
 	</div>
 </div>

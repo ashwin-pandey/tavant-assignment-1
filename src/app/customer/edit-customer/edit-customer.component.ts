@@ -26,7 +26,9 @@ export class EditCustomerComponent implements OnInit {
 
   getCustomer(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.customerService.getCustomer(this.id).subscribe(customer => this.customer = customer);
+    this.customerService.getCustomer(this.id).subscribe(
+      customer => this.customer = customer
+    );
   }
 
   updateCustomer(formData) {

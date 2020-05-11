@@ -1,82 +1,101 @@
-<div class="row">
-	<div class="col-lg-6 m-auto">
-		<div class="card">
-			<div class="card-body">
-				<form #f="ngForm" class="form" (ngSubmit)="f.form.valid && updateCustomer(f.value)" novalidate>
-					<input type="hidden" [(ngModel)]="customer.id" name="id">
-					<div class="form-group">
-						<label for="firstName">First Name</label>
-						<input 
-						type="text" 
-						class="form-control" 
-						[(ngModel)]="customer.firstName" 
-						name="firstName" 
-						#firstName="ngModel"
-						[ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }"
-						required>
-						<div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
-							<div *ngIf="firstName.errors.required">First name is required</div>
-						</div>
+<mat-card class="shadow-lg">
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<img mat-card-image class="mt-2" src="../../../assets/placeholder-image.png" alt="customer.firstName">
+			<mat-card-title>{{ customer.firstName }} {{ customer.lastName }}</mat-card-title>
+			<mat-card-subtitle>
+				{{ customer.address }}
+				<br>
+				{{ customer.city }}, {{ customer.state }}
+			</mat-card-subtitle>
+		</div>
+		<div class="col-md-6">
+			<mat-card-title>Edit Customer</mat-card-title>
+			<form #f="ngForm" class="form" (ngSubmit)="f.form.valid && updateCustomer(f.value)" novalidate>
+				<input type="hidden" [(ngModel)]="customer.id" name="id">
+
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<mat-form-field appearance="fill" class="form-group">
+							<mat-label>First Name</mat-label>
+							<input matInput
+							type="text" 
+							[(ngModel)]="customer.firstName" 
+							name="firstName" 
+							#firstName="ngModel"
+							[ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }"
+							required>
+							<mat-error *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+								<div *ngIf="firstName.errors.required">First name is required</div>
+							</mat-error>
+						</mat-form-field>
 					</div>
-					<div class="form-group">
-						<label for="lastName">Last Name</label>
-						<input 
-						type="text" 
-						class="form-control" 
-						[(ngModel)]="customer.lastName" 
-						name="lastName" 
-						#lastName="ngModel" 
-						[ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
-						required>
-						<div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
-							<div *ngIf="lastName.errors.required">Last name is required</div>
-						</div>
+					<div class="col-md-6 col-sm-6">
+						<mat-form-field appearance="fill" class="form-group">
+							<mat-label>Last Name</mat-label>
+							<input matInput
+							type="text" 
+							[(ngModel)]="customer.lastName" 
+							name="lastName" 
+							#lastName="ngModel" 
+							[ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }"
+							required>
+							<mat-error *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+								<div *ngIf="lastName.errors.required">Last name is required</div>
+							</mat-error>
+						</mat-form-field>
 					</div>
-					<div class="form-group">
-						<label for="address">Address</label>
-						<input 
-						type="text" 
-						class="form-control" 
-						#address="ngModel"
-						name="address"
-						[ngClass]="{ 'is-invalid': f.submitted && address.invalid }"
-						[(ngModel)]="customer.address"
-						required>
-						<div *ngIf="f.submitted && address.invalid" class="invalid-feedback">
-							<div *ngIf="address.errors.required">Address is required</div>
-						</div>
+				</div>
+
+				<mat-form-field appearance="fill" class="form-group">
+					<mat-label for="address">Address</mat-label>
+					<input matInput
+					type="text" 
+					#address="ngModel"
+					name="address"
+					[ngClass]="{ 'is-invalid': f.submitted && address.invalid }"
+					[(ngModel)]="customer.address"
+					required>
+					<mat-error *ngIf="f.submitted && address.invalid" class="invalid-feedback">
+						<div *ngIf="address.errors.required">Address is required</div>
+					</mat-error>
+				</mat-form-field>
+
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<mat-form-field appearance="fill" class="form-group">
+							<mat-label>City</mat-label>
+							<input matInput
+							type="text" 
+							[(ngModel)]="customer.city" 
+							name="city" 
+							#city="ngModel"
+							[ngClass]="{ 'is-invalid': f.submitted && city.invalid }"
+							required>
+							<mat-error *ngIf="f.submitted && city.invalid" class="invalid-feedback">
+								<div *ngIf="city.errors.required">City is required</div>
+							</mat-error>
+						</mat-form-field>
 					</div>
-					<div class="form-group">
-						<label for="city">City</label>
-						<input 
-						type="text" 
-						class="form-control" 
-						[(ngModel)]="customer.city" 
-						name="city" 
-						#city="ngModel"
-						[ngClass]="{ 'is-invalid': f.submitted && city.invalid }"
-						required>
-						<div *ngIf="f.submitted && city.invalid" class="invalid-feedback">
-							<div *ngIf="city.errors.required">City is required</div>
-						</div>
+					<div class="col-md-6 col-sm-6">
+						<mat-form-field appearance="fill" class="form-group">
+							<mat-label>State</mat-label>
+							<input matInput
+							type="text" 
+							[(ngModel)]="customer.state" 
+							name="state" 
+							#state="ngModel" 
+							[ngClass]="{ 'is-invalid': f.submitted && state.invalid }"
+							required>
+							<mat-error *ngIf="f.submitted && state.invalid" class="invalid-feedback">
+								<div *ngIf="state.errors.required">State is required</div>
+							</mat-error>
+						</mat-form-field>
 					</div>
-					<div class="form-group">
-						<label for="state">State</label>
-						<input 
-						type="text" 
-						class="form-control" 
-						[(ngModel)]="customer.state" 
-						name="state" 
-						#state="ngModel" 
-						[ngClass]="{ 'is-invalid': f.submitted && state.invalid }"
-						required>
-						<div *ngIf="f.submitted && state.invalid" class="invalid-feedback">
-							<div *ngIf="state.errors.required">State is required</div>
-						</div>
-					</div>
-					<input type="submit" value="Update" class="btn btn-success form-control">
-				</form>
-			</div>
+				</div>
+				
+				<button type="submit" color="primary" mat-raised-button class="form-control">Update</button>
+			</form>
 		</div>
 	</div>
-</div>
+</mat-card>

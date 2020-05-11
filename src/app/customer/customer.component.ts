@@ -13,6 +13,9 @@ export class CustomerComponent implements OnInit {
 
   customer = CustomerArray;
 
+  displayedColumns: string[] = ['firstName', 'lastName', 'address', 'city', 'state', 'edit', 'delete'];
+  dataSource = CustomerArray;
+
 	constructor(
     private customerService: CustomerService,
     private router: Router

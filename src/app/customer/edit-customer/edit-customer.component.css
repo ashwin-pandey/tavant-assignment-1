@@ -1,0 +1,10 @@
+mat-form-field,
+mat-card {
+	width: 100%;
+}
+
+img.mat-card-image {
+	height: 150px !important;
+	width: 150px !important;
+	border-radius: 50%;
+}
