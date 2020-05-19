@@ -12,7 +12,9 @@ export class AddCustomerComponent implements OnInit {
 
   customer: Customer[];
 
-  showLoadingIndicator: boolean;
+  // showLoadingIndicator: boolean;
+
+  maxDate = new Date();
 
   id: number;
 

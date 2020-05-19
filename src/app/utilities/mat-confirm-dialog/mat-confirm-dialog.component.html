@@ -1,0 +1,10 @@
+<div class="container p-1">
+	<div class="content-container">
+		<!-- <mat-icon class="close-icon">close</mat-icon> -->
+		<span class="pb-2">
+			Are you sure? This action cannot be reversed!
+		</span>
+	</div>
+	<button mat-raised-button class="mt-2 float-left" [mat-dialog-close]="false">No</button>
+	<button mat-raised-button class="mt-2 float-right" [mat-dialog-close]="true" color="warn">Yes</button>
+</div>

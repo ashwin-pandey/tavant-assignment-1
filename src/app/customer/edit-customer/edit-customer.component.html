@@ -47,6 +47,23 @@
 					</div>
 				</div>
 
+				<mat-form-field appearance="fill">
+					<mat-label>Date Of Birth</mat-label>
+					<input matInput [ngModel]="customer.dateOfBirth | date: 'yyyy-MM-dd'"
+					(ngModelChange)="customer.dateOfBirth = $event" 
+					[max]="maxDate" 
+					#dateOfBirth="ngModel" 
+					name="dateOfBirth" 
+					[matDatepicker]="myDatePicker"
+					[ngClass]="{ 'is-invalid': f.submitted && address.invalid }" 
+					required>
+					<mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+					<mat-datepicker #myDatePicker></mat-datepicker>
+					<mat-error *ngIf="f.submitted && dateOfBirth.invalid" class="invalid-feedback">
+						<div *ngIf="dateOfBirth.errors.required">Date of birth is required</div>
+					</mat-error>
+				</mat-form-field>
+
 				<mat-form-field appearance="fill" class="form-group">
 					<mat-label for="address">Address</mat-label>
 					<input matInput

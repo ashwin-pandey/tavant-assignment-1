@@ -6,7 +6,8 @@ export class Customer {
 		public lastName: string,
 		public address: string, 
 		public city: string,
-		public state: string
+		public state: string,
+		public dateOfBirth: string
 	) {}
 
 }

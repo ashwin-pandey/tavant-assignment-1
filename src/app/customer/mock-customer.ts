@@ -7,7 +7,8 @@ export const CustomerArray: Customer[] = [
 		lastName: 'Avery', 
 		address: '346 Cedar Ave.', 
 		city: 'Dellas', 
-		state: 'Texas' 
+		state: 'Texas',
+		dateOfBirth: '4/12/2000' 
 	},
 	{ 
 		id: 2, 
@@ -15,21 +16,24 @@ export const CustomerArray: Customer[] = [
 		lastName: 'Bell', 
 		address: '12 Ocean View St.', 
 		city: 'Dellas', 
-		state: 'Texas' 
+		state: 'Texas' ,
+		dateOfBirth: '4/12/2000'
 	},
 	{ 
 		id: 3, 
 		firstName: 'Robin', 
 		lastName: 'Cleark', 
 		address: '35632 Richmond Circle Apt 8', 
-		city: 'Los Angeles', state: 'California' 
+		city: 'Los Angeles', state: 'California' ,
+		dateOfBirth: '4/12/2000'
 	},
 	{ 
 		id: 4, 
 		firstName: 'Pinal', 
 		lastName: 'Dave', 
 		address: '235235 Yaz Blvd.', 
-		city: 'Houston', state: 'Texas' 
+		city: 'Houston', state: 'Texas' ,
+		dateOfBirth: '4/12/2000'
 	},
 	{ 
 		id: 5, 
@@ -37,7 +41,8 @@ export const CustomerArray: Customer[] = [
 		lastName: 'Einstein',
 		address: '1 Atomic St.', 
 		city: 'Seattle', 
-		state: 'Washington' 
+		state: 'Washington' ,
+		dateOfBirth: '4/12/2000'
 	},
 	{ 
 		id: 6, 
@@ -45,6 +50,7 @@ export const CustomerArray: Customer[] = [
 		lastName: 'Flores', 
 		address: '5687534 Jefferson Way', 
 		city: 'Buffalo', 
-		state: 'New York' 
+		state: 'New York' ,
+		dateOfBirth: '4/12/2000'
 	}
 ];
