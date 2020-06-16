@@ -79,4 +79,10 @@ export class CustomerComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
   }
 
+  onChange(event, index, element) {
+    element.checked = !element.checked;
+    console.log("id = " + index);
+    console.log(index, event, element);
+  }
+
 }

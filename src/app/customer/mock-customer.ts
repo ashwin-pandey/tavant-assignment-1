@@ -3,7 +3,7 @@ import { Customer } from './customer';
 export const CustomerArray: Customer[] = [
 	{ 
 		id: 1, 
-		select: false,
+		checked: false,
 		firstName: 'Michelle', 
 		lastName: 'Avery', 
 		address: '346 Cedar Ave.', 
@@ -14,7 +14,7 @@ export const CustomerArray: Customer[] = [
 	},
 	{ 
 		id: 2, 
-		select: false,
+		checked: false,
 		firstName: 'Ward', 
 		lastName: 'Bell', 
 		address: '12 Ocean View St.', 
@@ -25,7 +25,7 @@ export const CustomerArray: Customer[] = [
 	},
 	{ 
 		id: 3, 
-		select: false,
+		checked: false,
 		firstName: 'Robin', 
 		lastName: 'Cleark', 
 		address: '35632 Richmond Circle Apt 8', 
@@ -35,7 +35,7 @@ export const CustomerArray: Customer[] = [
 	},
 	{ 
 		id: 4, 
-		select: false,
+		checked: false,
 		firstName: 'Pinal', 
 		lastName: 'Dave', 
 		address: '235235 Yaz Blvd.', 
@@ -45,7 +45,7 @@ export const CustomerArray: Customer[] = [
 	},
 	{ 
 		id: 5, 
-		select: false,
+		checked: false,
 		firstName: 'Albert', 
 		lastName: 'Einstein',
 		address: '1 Atomic St.', 
@@ -56,7 +56,7 @@ export const CustomerArray: Customer[] = [
 	},
 	{ 
 		id: 6, 
-		select: false,
+		checked: false,
 		firstName: 'Robyn', 
 		lastName: 'Flores', 
 		address: '5687534 Jefferson Way', 

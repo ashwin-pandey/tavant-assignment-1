@@ -21,8 +21,9 @@
 				<!-- Select Column -->
 				<ng-container matColumnDef="select">
 					<mat-header-cell *matHeaderCellDef>Select</mat-header-cell>
-					<mat-cell *matCellDef="let element"> 
-						<mat-checkbox [(ngModel)]="element.select"></mat-checkbox>
+					<mat-cell *matCellDef="let element">
+						 <!-- [(ngModel)]="element.select"   -->
+						<mat-checkbox [checked]="element.checked" (change)="onChange($event, element.id, element)"></mat-checkbox>
 					</mat-cell>
 				</ng-container>
 			
@@ -95,3 +96,4 @@
 		</div>
 	</div>
 </div>
+
