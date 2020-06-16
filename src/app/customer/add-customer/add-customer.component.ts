@@ -35,10 +35,17 @@ export class AddCustomerComponent implements OnInit {
     // console.log(formData);
     this.customerService.addCustomer(formData).subscribe(
       response => {
+        this.customerService.messageType = "success",
+        this.customerService.message = "New customer added successfully!",
         this.router.navigate(['/']),
         console.log(response)
       },
-      error => console.log(error.message)
+      error => {
+        this.customerService.messageType = "danger",
+        this.customerService.message = "Could not add the new customer! Please try again later!",
+        this.router.navigate(['/']),
+        console.log(error.message)
+      }
     );
   }
 

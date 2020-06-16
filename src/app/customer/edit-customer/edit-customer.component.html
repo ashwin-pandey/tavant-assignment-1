@@ -10,15 +10,15 @@
 			</mat-card-subtitle>
 		</div>
 		<div class="col-md-6">
-			<mat-card-title>Edit Customer</mat-card-title>
+			<mat-card-title>Edit Customer</mat-card-title> 
+			<hr>
 			<form #f="ngForm" class="form" (ngSubmit)="f.form.valid && updateCustomer(f.value)" novalidate>
 				<input type="hidden" [(ngModel)]="customer.id" name="id">
 
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
-						<mat-form-field appearance="fill" class="form-group">
-							<mat-label>First Name</mat-label>
-							<input matInput
+						<mat-form-field>
+							<input matInput placeholder="First Name"
 							type="text" 
 							[(ngModel)]="customer.firstName" 
 							name="firstName" 
@@ -31,9 +31,8 @@
 						</mat-form-field>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						<mat-form-field appearance="fill" class="form-group">
-							<mat-label>Last Name</mat-label>
-							<input matInput
+						<mat-form-field>
+							<input matInput placeholder="Last Name"
 							type="text" 
 							[(ngModel)]="customer.lastName" 
 							name="lastName" 
@@ -47,26 +46,44 @@
 					</div>
 				</div>
 
-				<mat-form-field appearance="fill">
-					<mat-label>Date Of Birth</mat-label>
-					<input matInput [ngModel]="customer.dateOfBirth | date: 'yyyy-MM-dd'"
-					(ngModelChange)="customer.dateOfBirth = $event" 
-					[max]="maxDate" 
-					#dateOfBirth="ngModel" 
-					name="dateOfBirth" 
-					[matDatepicker]="myDatePicker"
-					[ngClass]="{ 'is-invalid': f.submitted && address.invalid }" 
-					required>
-					<mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
-					<mat-datepicker #myDatePicker></mat-datepicker>
-					<mat-error *ngIf="f.submitted && dateOfBirth.invalid" class="invalid-feedback">
-						<div *ngIf="dateOfBirth.errors.required">Date of birth is required</div>
-					</mat-error>
-				</mat-form-field>
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<mat-form-field>
+							<input matInput [ngModel]="customer.dateOfBirth | date: 'yyyy-MM-dd'" 
+							placeholder="Date Of Birth (MM/dd/yyyy)"
+							(ngModelChange)="customer.dateOfBirth = $event" 
+							[max]="maxDate" 
+							#dateOfBirth="ngModel" 
+							name="dateOfBirth" 
+							[matDatepicker]="myDatePicker"
+							[ngClass]="{ 'is-invalid': f.submitted && address.invalid }" 
+							required>
+							<mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+							<mat-datepicker #myDatePicker></mat-datepicker>
+							<mat-error *ngIf="f.submitted && dateOfBirth.invalid" class="invalid-feedback">
+								<div *ngIf="dateOfBirth.errors.required">Date of birth is required</div>
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<mat-form-field>
+							<mat-select [(ngModel)]="customer.gender" placeholder="Gender"
+							name="gender" 
+							#gender="ngModel" 
+							[ngClass]="{ 'is-invalid': f.submitted && city.invalid }"
+							required>
+								<mat-option value="Male">Male</mat-option>
+								<mat-option value="Female">Female</mat-option>
+							</mat-select>
+							<mat-error *ngIf="f.submitted && gender.invalid" class="invalid-feedback">
+								<div *ngIf="gender.errors.required">Date of birth is required</div>
+							</mat-error>
+						</mat-form-field>
+					</div>
+				</div>
 
-				<mat-form-field appearance="fill" class="form-group">
-					<mat-label for="address">Address</mat-label>
-					<input matInput
+				<mat-form-field>
+					<input matInput placeholder="Address"
 					type="text" 
 					#address="ngModel"
 					name="address"
@@ -80,9 +97,8 @@
 
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
-						<mat-form-field appearance="fill" class="form-group">
-							<mat-label>City</mat-label>
-							<input matInput
+						<mat-form-field>
+							<input matInput placeholder="City"
 							type="text" 
 							[(ngModel)]="customer.city" 
 							name="city" 
@@ -95,9 +111,8 @@
 						</mat-form-field>
 					</div>
 					<div class="col-md-6 col-sm-6">
-						<mat-form-field appearance="fill" class="form-group">
-							<mat-label>State</mat-label>
-							<input matInput
+						<mat-form-field>
+							<input matInput placeholder="State"
 							type="text" 
 							[(ngModel)]="customer.state" 
 							name="state" 

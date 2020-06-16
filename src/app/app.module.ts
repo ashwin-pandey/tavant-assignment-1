@@ -16,9 +16,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +45,10 @@ const MaterialImports = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatDialogModule,
-  MatIconModule
+  MatIconModule,
+  MatSelectModule,
+  MatSnackBarModule,
+  MatCheckboxModule
 ]
 
 
@@ -65,7 +69,9 @@ const MaterialImports = [
     BrowserAnimationsModule,
     MaterialImports
   ],
-  exports: [],
+  exports: [
+    MaterialImports
+  ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [MatConfirmDialogComponent]

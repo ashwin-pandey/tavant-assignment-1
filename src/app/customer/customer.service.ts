@@ -9,6 +9,8 @@ import { Observable, of } from 'rxjs';
 export class CustomerService {
 
   customerArray: Customer[] = CustomerArray;
+  message: string = "";
+  messageType: string = "";
 
   constructor() { }
 

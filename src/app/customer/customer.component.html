@@ -1,46 +1,30 @@
 <div class="row">
-	<div class="col-lg-12 mb-3 create-new-button">
-		<button mat-raised-button class="float-right" [routerLink]="['/customer/new']">+ Add New Customer</button>
-	</div>
 	<div class="col-lg-12">
 
-		<!-- dialog -->
-		<!-- <div mat-dialog-content *ngIf="delete">
-			<p class="warning">Are you sure? It cannot be reversed.</p>
-			<div mat-dialog-actions>
-				<button mat-raised-button (click)="onNoClick()">No</button>
-				<button type="submit" mat-raised-button color="warn" (click)="deleteCustomer(element.id)">Delete</button>
-			</div>
+		<!-- <div *ngIf="message && messageType" class="alert alert-{{ messageType }} alert-dismissible" data-auto-dismiss role="alert">
+			<button class="close" aria-label="close" data-dismiss="alert">&times;</button>
+			{{ message }}
 		</div> -->
 
-		<!-- <table class="table table-striped border mt-3">
-			<thead>
-				<tr>
-					<th scope="col">First Name</th>
-					<th scope="col">Last Name</th>
-					<th scope="col">Address</th>
-					<th scope="col">City</th>
-					<th scope="col">State</th>
-					<th scope="col">Edit</th>
-					<th scope="col">Delete</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let customer of customer">
-					<td><a [routerLink]="['/customer/edit', customer.id]">{{ customer.firstName }}</a></td>
-					<td>{{ customer.lastName }}</td>
-					<td>{{ customer.address }}</td>
-					<td>{{ customer.city }}</td>
-					<td>{{ customer.state }}</td>
-					<td><a class="" mat-raised-button color="accent" [routerLink]="['/customer/edit', customer.id]">Edit</a></td>
-					<td><button class="" mat-raised-button color="warn" (click)="deleteCustomer(customer.id)">Delete</button></td>
-				</tr>
-			</tbody>
-		</table> -->
+		<div class="top-bar">
+			<mat-form-field>
+				<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+			</mat-form-field>
+	
+			<button mat-raised-button class="create-new float-right" [routerLink]="['/customer/new']">Add New Customer</button>
+		</div>
 
 		<div class="mat-elevation-z8">
 
-			<mat-table [dataSource]="customer" matSort>
+			<mat-table [dataSource]="dataSource" matSort>
+
+				<!-- Select Column -->
+				<ng-container matColumnDef="select">
+					<mat-header-cell *matHeaderCellDef>Select</mat-header-cell>
+					<mat-cell *matCellDef="let element"> 
+						<mat-checkbox [(ngModel)]="element.select"></mat-checkbox>
+					</mat-cell>
+				</ng-container>
 			
 				<!-- First Name Column -->
 				<ng-container matColumnDef="firstName">
@@ -56,10 +40,16 @@
 					<mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
 				</ng-container>
 
-				<!-- Last Name Column -->
+				<!-- DoB Name Column -->
 				<ng-container class="mat-column-address" matColumnDef="dateOfBirth">
 					<mat-header-cell *matHeaderCellDef mat-sort-header> DOB </mat-header-cell>
-					<mat-cell *matCellDef="let element"> {{ element.dateOfBirth | date:'MM/dd/yyyy' }} </mat-cell>
+					<mat-cell *matCellDef="let element"> {{ element.dateOfBirth | date }} </mat-cell>
+				</ng-container>
+
+				<!-- Gender Name Column -->
+				<ng-container class="mat-column-address" matColumnDef="gender">
+					<mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
+					<mat-cell *matCellDef="let element"> {{ element.gender }} </mat-cell>
 				</ng-container>
 				
 				<!-- Address Column -->
@@ -100,7 +90,7 @@
 				<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 			
 			</mat-table>
-			<!-- <mat-paginator [pageSize]="5" [length]="length" [pageSizeOptions]="[5, 10, 20, 50 ,100]" showFirstLastButtons></mat-paginator> -->
+			<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20, 50 ,100]" showFirstLastButtons></mat-paginator>
 			
 		</div>
 	</div>
